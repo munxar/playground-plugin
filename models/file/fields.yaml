@@ -1,0 +1,11 @@
+fields:
+    token:
+        label: Token
+        oc.commentPosition: ''
+        span: full
+        type: token
+    test:
+        label: Token2
+        oc.commentPosition: ''
+        span: full
+        type: token
