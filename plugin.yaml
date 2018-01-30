@@ -1,0 +1,6 @@
+plugin:
+    name: 'jazz.playground::lang.plugin.name'
+    description: 'jazz.playground::lang.plugin.description'
+    author: Jazz
+    icon: oc-icon-bicycle
+    homepage: ''
