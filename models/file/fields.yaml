@@ -1,0 +1,6 @@
+fields:
+    token:
+        label: Token
+        oc.commentPosition: ''
+        span: left
+        type: token

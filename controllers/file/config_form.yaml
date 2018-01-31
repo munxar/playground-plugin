@@ -1,0 +1,10 @@
+name: File
+form: $/jazz/playground/models/file/fields.yaml
+modelClass: Jazz\Playground\Models\File
+defaultRedirect: jazz/playground/file
+create:
+    redirect: 'jazz/playground/file/update/:id'
+    redirectClose: jazz/playground/file
+update:
+    redirect: jazz/playground/file
+    redirectClose: jazz/playground/file

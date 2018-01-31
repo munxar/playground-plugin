@@ -4,3 +4,13 @@ plugin:
     author: Jazz
     icon: oc-icon-bicycle
     homepage: ''
+navigation:
+    main-menu-item:
+        label: 'jazz.playground::lang.plugin.name'
+        url: jazz/playground/file
+        icon: icon-bicycle
+        sideMenu:
+            side-menu-item:
+                label: Files
+                url: jazz/playground/file
+                icon: icon-files-o

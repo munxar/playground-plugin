@@ -1,0 +1,18 @@
+<?php if ( $this->previewMode ): ?>
+
+	<div class="form-control">
+		<?= $value ?>
+	</div>
+
+<?php else: ?>
+	<form class="form-elements">
+		<div class="form-group">
+			<div class="input-group">
+				<div class="input-group-addon">
+					<button class="btn btn-default " data-attach-loading ><i class="icon-refresh"></i></button>
+				</div>
+				<?= $this->makePartial( 'input' ) ?>
+			</div>
+		</div>
+	</form>
+<?php endif ?>
