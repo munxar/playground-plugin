@@ -1,6 +1,7 @@
 <?php namespace Jazz\Playground\FormWidgets;
 
 use Backend\Classes\FormWidgetBase;
+use Jazz\Playground\Classes\TokenGenerator;
 
 /**
  * token Form Widget
@@ -25,7 +26,7 @@ class Token extends FormWidgetBase
     public function render()
     {
         $this->prepareVars();
-        return $this->makePartial('token');
+	    return $this->makePartial('token');
     }
 
     /**
@@ -38,6 +39,13 @@ class Token extends FormWidgetBase
         $this->vars['model'] = $this->model;
     }
 
+	/**
+	 * @inheritDoc
+	 */
+	public function loadAssets()
+	{
+	}
+
     /**
      * @inheritDoc
      */
@@ -45,4 +53,16 @@ class Token extends FormWidgetBase
     {
         return $value;
     }
+
+
+	public function onCreateToken()
+	{
+		//sleep(2);
+		$this->prepareVars();
+		$this->vars['value'] =  TokenGenerator::generate(12, "abcdefghijklmnopqrstuvwxyz");
+		$tokenId = $this->getId('token');
+		return[
+			"#$tokenId" => $this->makePartial( 'input' )
+		];
+	}
 }

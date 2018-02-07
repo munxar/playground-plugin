@@ -4,3 +4,10 @@ fields:
         oc.commentPosition: ''
         span: left
         type: token
+        alphabet: abcdef
+    _token2:
+        label: Token 2
+        oc.commentPosition: ''
+        span: right
+        type: token
+        length: 8
