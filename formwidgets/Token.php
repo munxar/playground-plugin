@@ -14,10 +14,21 @@ class Token extends FormWidgetBase
     protected $defaultAlias = 'jazz_playground_token';
 
     /**
-     * @inheritDoc
+     * @var number
      */
+    protected $length = 16;
+
+    /**
+     * @var string
+     */
+    protected $alphabet = 'abcdefghijklmnopqrstuvwzyx1234567890';
+
     public function init()
     {
+        $this->fillFromConfig([
+            'length',
+            'alphabet',
+        ]);
     }
 
     /**
@@ -25,10 +36,8 @@ class Token extends FormWidgetBase
      */
     public function render()
     {
-	    $this->onCreateToken();
-        //$this->prepareVars();
+        $this->prepareVars();
 	    return $this->makePartial('token');
-
     }
 
     /**
@@ -37,34 +46,21 @@ class Token extends FormWidgetBase
     public function prepareVars()
     {
         $this->vars['name'] = $this->formField->getName();
-        $this->vars['value'] = $this->getLoadValue();
         $this->vars['model'] = $this->model;
-    }
-
-	/**
-	 * @inheritDoc
-	 */
-	public function loadAssets()
-	{
-	}
-
-    /**
-     * @inheritDoc
-     */
-    public function getSaveValue($value)
-    {
-        return $value;
+        $this->vars['value'] = $this->model->exists ? $this->getLoadValue() : $this->getToken();
     }
 
 	public function onCreateToken()
 	{
 		$this->prepareVars();
-		$length = "";
-		$alphabet = "";
-		$this->vars['value'] =  TokenGenerator::generate(16, "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789", $length, $alphabet);
-		$tokenId = $this->getId('token');
+        $this->vars['value'] = $this->getToken();
 		return[
-			"#$tokenId" => $this->makePartial( 'input' )
+			"#{$this->getId('token')}" => $this->makePartial( 'input' )
 		];
 	}
+
+	private function getToken()
+    {
+        return TokenGenerator::generate($this->length, $this->alphabet);
+    }
 }

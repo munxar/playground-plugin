@@ -10,4 +10,4 @@ fields:
         oc.commentPosition: ''
         span: right
         type: token
-        length: 8
+        length: 32
