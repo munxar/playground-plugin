@@ -25,8 +25,10 @@ class Token extends FormWidgetBase
      */
     public function render()
     {
-        $this->prepareVars();
+	    $this->onCreateToken();
+        //$this->prepareVars();
 	    return $this->makePartial('token');
+
     }
 
     /**
@@ -54,10 +56,8 @@ class Token extends FormWidgetBase
         return $value;
     }
 
-
 	public function onCreateToken()
 	{
-		//sleep(2);
 		$this->prepareVars();
 		$this->vars['value'] =  TokenGenerator::generate(12, "abcdefghijklmnopqrstuvwxyz");
 		$tokenId = $this->getId('token');
