@@ -59,7 +59,9 @@ class Token extends FormWidgetBase
 	public function onCreateToken()
 	{
 		$this->prepareVars();
-		$this->vars['value'] =  TokenGenerator::generate(12, "abcdefghijklmnopqrstuvwxyz");
+		$length = "";
+		$alphabet = "";
+		$this->vars['value'] =  TokenGenerator::generate(16, "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789", $length, $alphabet);
 		$tokenId = $this->getId('token');
 		return[
 			"#$tokenId" => $this->makePartial( 'input' )

@@ -14,13 +14,13 @@ class TokenGenerator {
 	 * @return string
 	 * Will return the generated String
 	 */
-	public static function generate($length, $alphabet){
+	public static function generate($defaultLength, $defaultAlphabet, $length, $alphabet){
 
-		if (!isset($length)){
-			$length = 16;
+		if ($length == ""){
+			$length = $defaultLength;
 		}
-		if (!isset($alphabet)){
-			$alphabet = "abcdef";
+		if ($alphabet == ""){
+			$alphabet = $defaultAlphabet;
 		}
 
 		$alphabetLength = strlen($alphabet);
