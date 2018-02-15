@@ -21,7 +21,7 @@ class Token extends FormWidgetBase
     /**
      * @var string
      */
-    protected $alphabet = 'abcdefghijklmnopqrstuvwzyx1234567890';
+    protected $alphabet = 'abcdefghijklmnopqrstuvwzyxABCDEFGHIJKLMNOPQRSTUVWXYZ1234567890';
 
     public function init()
     {

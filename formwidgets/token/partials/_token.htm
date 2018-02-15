@@ -7,8 +7,8 @@
 <?php else: ?>
 	<form class="form-elements">
 		<div class="form-group">
-			<div class="input-group loading-indicator-container">
-				<a class="btn btn-default input-group-addon" data-request="<?= $this->getEventHandler('onCreateToken') ?>" data-attach-loading><i class="icon-refresh"></i></a>
+			<div class="input-group">
+				<a class="btn btn-default input-group-addon" data-request="<?= $this->getEventHandler('onCreateToken') ?>"><i class="icon-refresh"></i></a>
 				<div id="<?= $this->getId('token') ?>">
 				<?= $this->makePartial( 'input' ) ?>
 				</div>
