@@ -8,6 +8,6 @@ fields:
     _token2:
         label: Token 2
         oc.commentPosition: ''
-        span: right
-        type: token
+        span: left
+        type: mltext
         length: 32

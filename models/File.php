@@ -19,6 +19,9 @@ class File extends Model
 		'token.required' => 'A token is required.',
 		'token.unique' => 'Token must be unique'
 	];
+	public $implement = ['@RainLab.Translate.Behaviors.TranslatableModel'];
+
+	public $translatable = ['token'];
 
     /**
      * @var string The database table used by the model.
