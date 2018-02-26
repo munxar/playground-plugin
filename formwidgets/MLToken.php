@@ -44,6 +44,17 @@ class MLToken extends Token
         $this->prepareLocaleVars();
     }
 
+	/**
+	 * {@inheritDoc}
+	 */
+	protected function loadAssets()
+	{
+		parent::loadAssets();
+		$this->loadLocaleAssets();
+		$this->addCss('css/mltoken.css');
+
+	}
+
     /**
      * Returns an array of translated values for this field
      * @return array
@@ -51,14 +62,6 @@ class MLToken extends Token
     public function getSaveValue($value)
     {
         return $this->getLocaleSaveValue($value);
-    }
-
-    /**
-     * {@inheritDoc}
-     */
-    protected function loadAssets()
-    {
-        $this->loadLocaleAssets();
     }
 
     protected function actAsParent($switch = true)
