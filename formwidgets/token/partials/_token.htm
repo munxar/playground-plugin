@@ -7,25 +7,11 @@
 <?php else: ?>
 	<div class="input-group">
 		<a class="btn btn-default input-group-addon" data-request="<?= $this->getEventHandler('onCreateToken') ?>"><i class="icon-refresh"></i></a>
-		<div id="<?= $this->getId('token') ?>"
-			id="<?= $this->getId() ?>"
-			data-control="multilingual"
-			 data-default-locale="<?= $defaultLocale->code ?>"
-			 data-placeholder-field="#<?= $field->getId('placeholderField') ?>"
-			class="field-multilingual field-multilingual-text dropdown">
-
+		<div
+            id="<?= $this->getId('token') ?>"
+        >
 			<?= $this->makePartial( 'input' ) ?>
 
-			<button
-				class="btn btn-default ml-btn"
-				data-toggle="dropdown"
-				data-active-locale
-				type="button">
-			</button>
-
-		<?= $this->makeParentPartial('locale_values') ?>
-
-		<?= $this->makeParentPartial('locale_selector') ?>
 		</div>
 	</div>
 <?php endif ?>

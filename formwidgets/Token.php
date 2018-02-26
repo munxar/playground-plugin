@@ -9,7 +9,7 @@ use RainLab\Translate\Models\Locale;
  */
 class Token extends FormWidgetBase
 {
-	use \RainLab\Translate\Traits\MLControl;
+	//use \RainLab\Translate\Traits\MLControl;
     /**
      * @inheritDoc
      */
@@ -31,7 +31,6 @@ class Token extends FormWidgetBase
             'length',
             'alphabet',
         ]);
-	    $this->initLocale();
     }
 
     /**
@@ -39,26 +38,9 @@ class Token extends FormWidgetBase
      */
     public function render()
     {
-	    $this->isAvailable = Locale::isAvailable();
-
         $this->prepareVars();
-
-	    if ($this->isAvailable) {
-		    return $this->makePartial('token');
-	    }
-	    else {
-		    return $this->renderFallbackField();
-	    }
+        return $this->makePartial('token');
     }
-
-	/**
-	 * Returns an array of translated values for this field
-	 * @return array
-	 */
-	public function getSaveValue($value)
-	{
-		return $this->getLocaleSaveValue($value);
-	}
 
     /**
      * Prepares the form widget view data
@@ -68,7 +50,6 @@ class Token extends FormWidgetBase
         $this->vars['name'] = $this->formField->getName();
         $this->vars['model'] = $this->model;
         $this->vars['value'] = $this->model->exists ? $this->getLoadValue() : $this->getToken();
-	    $this->prepareLocaleVars();
     }
 
 	public function onCreateToken()
@@ -84,10 +65,5 @@ class Token extends FormWidgetBase
     {
         return TokenGenerator::generate($this->length, $this->alphabet);
     }
-
-	protected function loadAssets()
-	{
-		$this->loadLocaleAssets();
-	}
 
 }

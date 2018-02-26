@@ -3,11 +3,11 @@ fields:
         label: Token
         oc.commentPosition: ''
         span: left
-        type: token
+        type: mltoken
         alphabet: abcdef12345
     _token2:
         label: Token 2
         oc.commentPosition: ''
         span: left
-        type: mltext
+        type: token
         length: 32

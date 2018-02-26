@@ -1,5 +1,6 @@
 <?php namespace Jazz\Playground;
 
+use Jazz\Playground\FormWidgets\MLToken;
 use Jazz\Playground\FormWidgets\Token;
 use System\Classes\PluginBase;
 
@@ -12,9 +13,13 @@ class Plugin extends PluginBase
     public function registerSettings()
     {
     }
+
+
+
     public function registerFormWidgets() {
 	    return [
-	    	Token::class => 'token'
+	    	Token::class => 'token',
+            MLToken::class => 'mltoken',
 	    ];
     }
 }

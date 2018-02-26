@@ -1,6 +1,7 @@
 <?php namespace Jazz\Playground\Models;
 
 use Model;
+use RainLab\Translate\Behaviors\TranslatableModel;
 
 /**
  * Model
@@ -8,7 +9,13 @@ use Model;
 class File extends Model
 {
     use \October\Rain\Database\Traits\Validation;
-    
+
+    public $implement = [
+        TranslatableModel::class
+    ];
+
+    public $translatable = ['token'];
+
     /**
      * @var array Validation rules
      */
@@ -19,9 +26,6 @@ class File extends Model
 		'token.required' => 'A token is required.',
 		'token.unique' => 'Token must be unique'
 	];
-	public $implement = ['@RainLab.Translate.Behaviors.TranslatableModel'];
-
-	public $translatable = ['token'];
 
     /**
      * @var string The database table used by the model.
