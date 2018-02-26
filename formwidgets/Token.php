@@ -2,14 +2,12 @@
 
 use Backend\Classes\FormWidgetBase;
 use Jazz\Playground\Classes\TokenGenerator;
-use RainLab\Translate\Models\Locale;
 
 /**
  * token Form Widget
  */
 class Token extends FormWidgetBase
 {
-	//use \RainLab\Translate\Traits\MLControl;
     /**
      * @inheritDoc
      */
